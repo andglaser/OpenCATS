@@ -10,11 +10,11 @@
 * as published by the Free Software Foundation.
 */
 ?>
-<?php TemplateUtility::printModalHeader('Candidates', array(), 'Select duplicate to this Candidate'); ?>
+<?php TemplateUtility::printModalHeader('Candidates', array(), 'Duplikat für diesen Kandidaten auswählen'); ?>
 
     <?php if (!$this->isFinishedMode): ?>
-        <p>Search for a candidate below, and then click on the candidate name to link
-        this candidate as a duplicate to them.</p>
+        <p>Suchen Sie unten nach einem Kandidaten und klicken Sie dann auf den Namen,
+        um diesen Kandidaten als Duplikat zu verknüpfen.</p>
 
         <table class="searchTable">
             <form id="searchByCandidateNameForm" name="searchByJobTitleForm" action="<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=linkDuplicate" method="post">
@@ -24,11 +24,11 @@
                 <input type="hidden" id="candidateID_jobtitle" name="candidateIDArrayStored" value="<?php echo($this->candidateIDArrayStored); ?>" />
 
                 <tr>
-                    <td>Search by Candidate Name:&nbsp;</td>
+                    <td>Nach Kandidatename suchen:&nbsp;</td>
                     <td><input type="text" class="inputbox" id="wildCardString_candidateName" name="wildCardString"style="width:200px;" />&nbsp;*</td>
                 </tr>
                 <tr>
-                    <td><input type="submit" class="button" id="searchByCandidateName" name="searchByCandidateName" value="Search by Candidate Name" /></td>
+                    <td><input type="submit" class="button" id="searchByCandidateName" name="searchByCandidateName" value="Nach Kandidatename suchen" /></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -44,19 +44,19 @@
 
         <?php if ($this->isResultsMode): ?>
             <br />
-            <p class="noteUnsized">Search Results</p>
+            <p class="noteUnsized">Suchergebnisse</p>
 
             <?php if (!empty($this->rs)): ?>
                 <table class="sortable" width="100%">
                     <tr>
-                        <th align="left">First Name</th>
-                        <th align="left">Last Name</th>
-                        <th align="left">E-mail</th>
-                        <th align="left">Cell phone</th>
-                        <th align="left">City</th>
-                        <th align="left">State</th>
-                        <th align="left">Owner</th>
-                        <th align="center">Action</th>
+                        <th align="left">Vorname</th>
+                        <th align="left">Nachname</th>
+                        <th align="left">E-Mail</th>
+                        <th align="left">Mobiltelefon</th>
+                        <th align="left">Stadt</th>
+                        <th align="left">Bundesland</th>
+                        <th align="left">Verantwortlich</th>
+                        <th align="center">Aktion</th>
                     </tr>
 
                     <?php foreach ($this->rs as $rowNumber => $data): ?>
@@ -85,7 +85,7 @@
                             <td align="left" valign="top"><?php $this->_($data['state']); ?></td>
                             <td align="left" valign="top" nowrap="nowrap"><?php $this->_($data['ownerFirstName'])." ".$this->_($data['ownerLastName']); ?></td>
                             <td align="center" nowrap="nowrap">
-                                <a href="#" title="Show Candidate" onclick="javascript:openCenteredPopup('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;display=popup&amp;candidateID=<?php $this->_($data['candidateID']); ?>', 'viewCandidateDetails', 1000, 675, true); return false;">
+                                <a href="#" title="Kandidat anzeigen" onclick="javascript:openCenteredPopup('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;display=popup&amp;candidateID=<?php $this->_($data['candidateID']); ?>', 'viewCandidateDetails', 1000, 675, true); return false;">
                                     <img src="images/new_browser_inline.gif" alt="consider" width="16" height="16" border="0" class="absmiddle" />
                                 </a>
                             </td>
@@ -93,23 +93,23 @@
                     <?php endforeach; ?>
                 </table>
             <?php else: ?>
-                <p>No matching entries found.</p>
+                <p>Keine passenden Einträge gefunden.</p>
             <?php endif; ?>
         <?php else: ?>
             <br />
-            <p class="noteUnsized">All Candidates</p>
+            <p class="noteUnsized">Alle Kandidaten</p>
 
             <?php if (!empty($this->rs)): ?>
                 <table class="sortable" width="100%">
                     <tr>
-                        <th align="left">First Name</th>
-                        <th align="left">Last Name</th>
-                        <th align="left">E-mail</th>
-                        <th align="left">Cell phone</th>
-                        <th align="left">City</th>
-                        <th align="left">State</th>
-                        <th align="left">Owner</th>
-                        <th align="center">Action</th>
+                        <th align="left">Vorname</th>
+                        <th align="left">Nachname</th>
+                        <th align="left">E-Mail</th>
+                        <th align="left">Mobiltelefon</th>
+                        <th align="left">Stadt</th>
+                        <th align="left">Bundesland</th>
+                        <th align="left">Verantwortlich</th>
+                        <th align="center">Aktion</th>
                     </tr>
 
                     <?php foreach ($this->rs as $rowNumber => $data): ?>
@@ -138,7 +138,7 @@
                             <td align="left" valign="top"><?php $this->_($data['state']); ?></td>
                             <td align="left" valign="top" nowrap="nowrap"><?php $this->_($data['ownerFirstName'])." ".$this->_($data['ownerLastName']); ?></td>
                             <td align="center" nowrap="nowrap">
-                                <a href="#" title="Show Candidate" onclick="javascript:openCenteredPopup('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;display=popup&amp;candidateID=<?php $this->_($data['candidateID']); ?>', 'viewCandidateDetails', 1000, 675, true); return false;">
+                                <a href="#" title="Kandidat anzeigen" onclick="javascript:openCenteredPopup('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;display=popup&amp;candidateID=<?php $this->_($data['candidateID']); ?>', 'viewCandidateDetails', 1000, 675, true); return false;">
                                     <img src="images/new_browser_inline.gif" alt="consider" width="16" height="16" border="0" class="absmiddle" />
                                 </a>
                             </td>
@@ -146,14 +146,14 @@
                     <?php endforeach; ?>
                 </table>
             <?php else: ?>
-                <p>No candidates found.</p>
+                <p>Keine Kandidaten gefunden.</p>
             <?php endif; ?>
         <?php endif; ?>
     <?php else: ?>
-        <p>This candidate has been successfully added as a duplicate for the selected candidate.</p>
+        <p>Dieser Kandidat wurde erfolgreich als Duplikat für den ausgewählten Kandidaten hinzugefügt.</p>
 
         <form method="get" action="<?php echo(CATSUtility::getIndexName()); ?>">
-            <input type="button" name="close" value="Close" onclick="parentHidePopWinRefresh();" />
+            <input type="button" name="close" value="Schließen" onclick="parentHidePopWinRefresh();" />
         </form>
     <?php endif; ?>
 

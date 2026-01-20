@@ -9,13 +9,13 @@
             <table>
                 <tr>
                     <td width="3%">
-                        <img src="images/candidate.gif" width="24" height="24" border="0" alt="Candidates" style="margin-top: 3px;" />&nbsp;
+                        <img src="images/candidate.gif" width="24" height="24" border="0" alt="Kandidaten" style="margin-top: 3px;" />&nbsp;
                     </td>
-                    <td><h2>Candidates: Search Candidates</h2></td>
+                    <td><h2>Kandidaten: Kandidaten suchen</h2></td>
                 </tr>
             </table>
 
-            <p class="note">Search Candidates</p>
+            <p class="note">Kandidaten suchen</p>
 
             <table class="searchTable" id="searchTable ">
                 <tr>
@@ -27,16 +27,16 @@
 
                             <?php TemplateUtility::printSavedSearch($this->savedSearchRS); ?>
 
-                            <label id="searchModeLabel" for="searchMode">Search By:</label>&nbsp;
+                            <label id="searchModeLabel" for="searchMode">Suchen nach:</label>&nbsp;
                             <select id="searchMode" name="mode" onclick="advancedSearchConsider();" class="selectBox">
-                                <option value="searchByFullName"<?php if ($this->mode == "searchByFullName"): ?> selected<?php endif; ?>>Candidate Name</option>
-                                <option value="searchByResume"<?php if ($this->mode == "searchByResume" || empty($this->mode)): ?> selected<?php endif; ?>>Resume Keywords</option>
-                                <option value="searchByKeySkills"<?php if ($this->mode == "searchByKeySkills"): ?> selected<?php endif; ?>>Key Skills</option>
-                                <option value="searchByCity"<?php if ($this->mode == "searchByCity"): ?> selected<?php endif; ?>>City</option>
-                                <option value="phoneNumber"<?php if ($this->mode == "phoneNumber"): ?> selected<?php endif; ?>>Phone Number</option>
+                                <option value="searchByFullName"<?php if ($this->mode == "searchByFullName"): ?> selected<?php endif; ?>>Kandidatename</option>
+                                <option value="searchByResume"<?php if ($this->mode == "searchByResume" || empty($this->mode)): ?> selected<?php endif; ?>>Lebenslauf-Schlüsselwörter</option>
+                                <option value="searchByKeySkills"<?php if ($this->mode == "searchByKeySkills"): ?> selected<?php endif; ?>>Schlüsselqualifikationen</option>
+                                <option value="searchByCity"<?php if ($this->mode == "searchByCity"): ?> selected<?php endif; ?>>Stadt</option>
+                                <option value="phoneNumber"<?php if ($this->mode == "phoneNumber"): ?> selected<?php endif; ?>>Telefonnummer</option>
                             </select>&nbsp;
                             <input type="text" class="inputbox" id="searchText" name="wildCardString" value="<?php if (!empty($this->wildCardString)) $this->_($this->wildCardString); ?>" style="width:250px" />&nbsp;*&nbsp;
-                            <input type="submit" class="button" id="searchCandidates" name="searchCandidates" value="Search" />
+                            <input type="submit" class="button" id="searchCandidates" name="searchCandidates" value="Suchen" />
                             <?php TemplateUtility::printAdvancedSearch('searchByKeySkills,searchByResume'); ?>
                         </form>
                     </td>
@@ -50,10 +50,10 @@
             <?php if ($this->isResumeMode && $this->isResultsMode): ?>
                 <br />
                 <?php if (!empty($this->rs)): ?>
-                    <p class="note">Search Results &nbsp;<?php $this->_($this->pageStart); ?> to <?php $this->_($this->pageEnd); ?> of <?php $this->_($this->totalResults); ?></p>
+                    <p class="note">Suchergebnisse &nbsp;<?php $this->_($this->pageStart); ?> bis <?php $this->_($this->pageEnd); ?> von <?php $this->_($this->totalResults); ?></p>
                     <?php echo($this->exportForm['header']); ?>
                 <?php else: ?>
-                    <p class="note">Search Results</p>
+                    <p class="note">Suchergebnisse</p>
                 <?php endif; ?>
 
                 <table class="sortable">
@@ -61,26 +61,26 @@
                         <tr>
                             <th nowrap>&nbsp;</th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('firstName', 'First Name'); ?>
+                                <?php $this->pager->printSortLink('firstName', 'Vorname'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('lastName', 'Last Name'); ?>
+                                <?php $this->pager->printSortLink('lastName', 'Nachname'); ?>
                             </th>
-                            <th align="left" nowrap="nowrap">Resume</th>
+                            <th align="left" nowrap="nowrap">Lebenslauf</th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('city', 'City'); ?>
-                            </th>
-                            <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('state', 'State'); ?>
+                                <?php $this->pager->printSortLink('city', 'Stadt'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('dateCreatedSort', 'Created'); ?>
+                                <?php $this->pager->printSortLink('state', 'Bundesland'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('dateModifiedSort', 'Modified'); ?>
+                                <?php $this->pager->printSortLink('dateCreatedSort', 'Erstellt'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('ownerSort', 'Owner'); ?>
+                                <?php $this->pager->printSortLink('dateModifiedSort', 'Geändert'); ?>
+                            </th>
+                            <th align="left" nowrap="nowrap">
+                                <?php $this->pager->printSortLink('ownerSort', 'Verantwortlich'); ?>
                             </th>
                         </tr>
                     </thead>
@@ -91,7 +91,7 @@
                                 <?php if ($data['candidateID'] > 0): ?>
                                     <td valign="top" nowrap>
                                         <input type="checkbox" id="checked_<?php echo($data['candidateID']); echo($data['attachmentID']); ?>" name="checked_<?php echo($data['candidateID']); ?>" />
-                                        <a href="javascript:void(0);" onClick="window.open('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;candidateID=<?php $this->_($data['candidateID']); ?>')" title="View in New Window">
+                                        <a href="javascript:void(0);" onClick="window.open('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;candidateID=<?php $this->_($data['candidateID']); ?>')" title="In neuem Fenster öffnen">
                                             <img src="images/new_window.gif" class="abstop" alt="(Preview)" border="0" width="15" height="15" />
                                         </a>
                                     </td>
@@ -111,9 +111,9 @@
                                     </td>
                                     <td valign="top" colspan="2">
                                         <a href="<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=add&amp;attachmentID=<?php $this->_($data['attachmentID']); ?>">
-                                            <img src="images/candidate_tiny.gif" width="16" height="16" border="0" class="absmiddle" alt="" title="Create Candidate Profile" />
+                                            <img src="images/candidate_tiny.gif" width="16" height="16" border="0" class="absmiddle" alt="" title="Kandidatenprofil erstellen" />
                                         </a>
-                                        &nbsp;Bulk Resume
+                                        &nbsp;Massen-Lebenslauf
                                     </td>
                                 <?php endif; ?>
                                 <td valign="top">
@@ -131,7 +131,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="8">No matching entries found.</td>
+                            <td colspan="8">Keine passenden Einträge gefunden.</td>
                         </tr>
                     <?php endif; ?>
                 </table>
@@ -143,7 +143,7 @@
                 <?php endif; ?>
             <?php elseif ($this->isResultsMode): ?>
                 <br />
-                <p class="note">Search Results (<?php echo(count($this->rs)); ?>)</p>
+                <p class="note">Suchergebnisse (<?php echo(count($this->rs)); ?>)</p>
 
                 <?php if (!empty($this->rs)): ?>
                     <?php echo($this->exportForm['header']); ?>
@@ -151,26 +151,26 @@
                         <tr>
                             <th nowrap>&nbsp;</th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('firstName', 'First Name'); ?>
+                                <?php $this->pager->printSortLink('firstName', 'Vorname'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('lastName', 'Last Name'); ?>
+                                <?php $this->pager->printSortLink('lastName', 'Nachname'); ?>
                             </th>
-                            <th align="left" nowrap="nowrap">Key Skills</th>
+                            <th align="left" nowrap="nowrap">Schlüsselqualifikationen</th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('city', 'City'); ?>
-                            </th>
-                            <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('state', 'State'); ?>
+                                <?php $this->pager->printSortLink('city', 'Stadt'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('dateCreated', 'Created'); ?>
+                                <?php $this->pager->printSortLink('state', 'Bundesland'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('dateModified', 'Modified'); ?>
+                                <?php $this->pager->printSortLink('dateCreated', 'Erstellt'); ?>
                             </th>
                             <th align="left" nowrap="nowrap">
-                                <?php $this->pager->printSortLink('owner_user.last_name', 'Owner'); ?>
+                                <?php $this->pager->printSortLink('dateModified', 'Geändert'); ?>
+                            </th>
+                            <th align="left" nowrap="nowrap">
+                                <?php $this->pager->printSortLink('owner_user.last_name', 'Verantwortlich'); ?>
                             </th>
                         </tr>
 
@@ -178,9 +178,9 @@
                             <tr class="<?php TemplateUtility::printAlternatingRowClass($rowNumber); ?>">
                                 <td nowrap>
                                     <input type="checkbox" id="checked_<?php echo($data['candidateID']); ?>" name="checked_<?php echo($data['candidateID']); ?>" />
-                                    <a href="javascript:void(0);" onClick="window.open('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;candidateID=<?php $this->_($data['candidateID']); ?>')" title="View in New Window">
-                                        <img src="images/new_window.gif" class="abstop" alt="(Preview)" border="0" width="15" height="15" />
-                                    </a>&nbsp;
+                                        <a href="javascript:void(0);" onClick="window.open('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;candidateID=<?php $this->_($data['candidateID']); ?>')" title="In neuem Fenster öffnen">
+                                            <img src="images/new_window.gif" class="abstop" alt="(Preview)" border="0" width="15" height="15" />
+                                        </a>&nbsp;
                                 </td>
                                 <td>
                                     <a href="<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=show&amp;candidateID=<?php $this->_($data['candidateID']); ?>">
@@ -194,7 +194,7 @@
                                 </td>
                                 <td>
                                     <?php if (isset($data['resumeID'])): ?>
-                                        <a href="javascript:void(0);" onclick="window.open('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=viewResume&amp;wildCardString=<?php $this->_(urlencode($this->wildCardString)); ?>&amp;attachmentID=<?php $this->_($data['resumeID']); ?>', 'viewResume', 'scrollbars=1,width=700,height=600')" Title="View resume">
+                                        <a href="javascript:void(0);" onclick="window.open('<?php echo(CATSUtility::getIndexName()); ?>?m=candidates&amp;a=viewResume&amp;wildCardString=<?php $this->_(urlencode($this->wildCardString)); ?>&amp;attachmentID=<?php $this->_($data['resumeID']); ?>', 'viewResume', 'scrollbars=1,width=700,height=600')" Title="Lebenslauf ansehen">
                                             <img src="images/resume_preview_inline.gif" class="abstop" alt="(Preview)" border="0" width="15" height="15" />
                                         </a>
                                     <?php endif; ?>
@@ -211,7 +211,7 @@
                     <?php echo($this->exportForm['footer']); ?>
                     <?php echo($this->exportForm['menu']); ?>
                 <?php else: ?>
-                    <p>No matching entries found.</p>
+                    <p>Keine passenden Einträge gefunden.</p>
                 <?php endif; ?>
             <?php endif; ?>
         </div>
