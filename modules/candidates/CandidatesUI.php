@@ -70,10 +70,10 @@ class CandidatesUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'candidates';
         $this->_moduleName = 'candidates';
-        $this->_moduleTabText = 'Candidates';
+        $this->_moduleTabText = 'Kandidaten';
         $this->_subTabs = array(
-            'Add Candidate'     => CATSUtility::getIndexName() . '?m=candidates&amp;a=add*al=' . ACCESS_LEVEL_EDIT . '@candidates.add',
-            'Search Candidates' => CATSUtility::getIndexName() . '?m=candidates&amp;a=search'
+            'Kandidaten hinzufügen' => CATSUtility::getIndexName() . '?m=candidates&amp;a=add*al=' . ACCESS_LEVEL_EDIT . '@candidates.add',
+            'Kandidaten suchen'     => CATSUtility::getIndexName() . '?m=candidates&amp;a=search'
         );
     }
 
@@ -873,7 +873,7 @@ class CandidatesUI extends UserInterface
         $this->_template->assign('contents', $contents);
         $this->_template->assign('extraFieldRS', $extraFieldRS);
         $this->_template->assign('active', $this);
-        $this->_template->assign('subActive', 'Add Candidate');
+        $this->_template->assign('subActive', 'Kandidaten hinzufügen');
         $this->_template->assign('sourcesRS', $sourcesRS);
         $this->_template->assign('sourcesString', $sourcesString);
         $this->_template->assign('preassignedFields', $preassignedFields);
@@ -1897,7 +1897,7 @@ class CandidatesUI extends UserInterface
         $this->_template->assign('wildCardString', '');
         $this->_template->assign('savedSearchRS', $savedSearchRS);
         $this->_template->assign('active', $this);
-        $this->_template->assign('subActive', 'Search Candidates');
+        $this->_template->assign('subActive', 'Kandidaten suchen');
         $this->_template->assign('isResultsMode', false);
         $this->_template->assign('isResumeMode', false);
         $this->_template->assign('resumeWildCardString', '');
