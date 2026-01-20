@@ -10,7 +10,7 @@
 * as published by the Free Software Foundation.
 */
  ?>
-<?php TemplateUtility::printModalHeader('Candidates', array(), 'Select information to keep in merge duplicates'); ?>
+<?php TemplateUtility::printModalHeader('Candidates', array(), 'Informationen zum Behalten beim Zusammenführen auswählen'); ?>
 
     <?php if (!$this->isFinishedMode): ?>
 
@@ -20,12 +20,12 @@
                 <input type="hidden" id="newCandidateID" name="newCandidateID" value=<?php echo $this->newCandidateID; ?> />
                 
                 <tr>
-                    <td colspan=2 align="right">Original candidate&nbsp;</td>
-                    <td colspan=2 align="left">Duplicate candidate&nbsp;</td>
+                    <td colspan=2 align="right">Ursprünglicher Kandidat&nbsp;</td>
+                    <td colspan=2 align="left">Duplikat-Kandidat&nbsp;</td>
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center">First Name&nbsp;</td>
+                    <td colspan=4 align="center">Vorname&nbsp;</td>
                 </tr>
                 <tr>
                     <td align="right"><?php echo($this->rsOld['firstName']); ?></td>
@@ -36,7 +36,7 @@
                 
                 
                 <tr>
-                    <td colspan=4 align="center">Middle Name&nbsp;</td>
+                    <td colspan=4 align="center">Zweiter Vorname&nbsp;</td>
                 </tr>
                 <tr>
                     <td align="right"><?php echo($this->rsOld['middleName']); ?></td>
@@ -46,7 +46,7 @@
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center">Last Name&nbsp;</td>
+                    <td colspan=4 align="center">Nachname&nbsp;</td>
                 </tr>
                 <tr>
                     <td align="right"><?php echo($this->rsOld['lastName']); ?></td>
@@ -57,80 +57,80 @@
                 
                 
                 <tr>
-                    <td colspan=4 align="center">E-mails (max. 2)&nbsp;</td>
+                    <td colspan=4 align="center">E-Mails (max. 2)&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="right"><?php echo($this->rsOld['email1'] == '') ?  '(none)' : ($this->rsOld['email1']);  ?></td>
+                    <td align="right"><?php echo($this->rsOld['email1'] == '') ?  '(keine)' : ($this->rsOld['email1']);  ?></td>
                     <td align="center"><input type="checkbox" name="email[]" value="<?php echo ($this->rsOld['email1'] == '') ?  '' : ($this->rsOld['email1']); ?>" onclick="return keepCount('email')"/></td>
                     <td align="center"><input type="checkbox" name="email[]" value="<?php echo ($this->rsNew['email1'] == '') ?  '' : ($this->rsNew['email1']); ?>" onclick="return keepCount('email')" checked/></td>
-                    <td align="left"><?php echo($this->rsNew['email1'] == '') ?  '(none)' : ($this->rsNew['email1']);  ?></td>
+                    <td align="left"><?php echo($this->rsNew['email1'] == '') ?  '(keine)' : ($this->rsNew['email1']);  ?></td>
                 </tr>
                 <tr>
-                    <td align="right"><?php echo($this->rsOld['email2'] == '') ?  '(none)' : ($this->rsOld['email2']); ?></td>
+                    <td align="right"><?php echo($this->rsOld['email2'] == '') ?  '(keine)' : ($this->rsOld['email2']); ?></td>
                     <td align="center"><input type="checkbox" name="email[]" value="<?php echo ($this->rsOld['email2'] == '') ?  '' : ($this->rsOld['email2']); ?>" onclick="return keepCount('email')"/></td>
                     <td align="center"><input type="checkbox" name="email[]" value="<?php echo ($this->rsNew['email2'] == '') ?  '' : ($this->rsNew['email2']); ?>" onclick="return keepCount('email')" checked/></td>
-                    <td align="left"><?php echo($this->rsNew['email2'] == '') ?  '(none)' : ($this->rsNew['email2']); ?></td>
+                    <td align="left"><?php echo($this->rsNew['email2'] == '') ?  '(keine)' : ($this->rsNew['email2']); ?></td>
                 </tr>
                 <tr>
-                    <td colspan=4 align="center">Cell phone&nbsp;</td>
+                    <td colspan=4 align="center">Mobiltelefon&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="right"><?php echo($this->rsOld['phoneCell'] == '') ? '(none)' : ($this->rsOld['phoneCell']); ?></td>
+                    <td align="right"><?php echo($this->rsOld['phoneCell'] == '') ? '(keine)' : ($this->rsOld['phoneCell']); ?></td>
                     <td align="center"><input type="radio" name="phoneCell" value=0 /></td>
                     <td align="center"><input type="radio" name="phoneCell" value=1 checked/></td>
-                    <td align="left"><?php echo($this->rsNew['phoneCell'] == '') ? '(none)' : ($this->rsNew['phoneCell']); ?></td>
+                    <td align="left"><?php echo($this->rsNew['phoneCell'] == '') ? '(keine)' : ($this->rsNew['phoneCell']); ?></td>
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center">Home phone&nbsp;</td>
+                    <td colspan=4 align="center">Telefon privat&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="right"><?php echo($this->rsOld['phoneHome'] == '') ? '(none)' : ($this->rsOld['phoneHome']); ?></td>
+                    <td align="right"><?php echo($this->rsOld['phoneHome'] == '') ? '(keine)' : ($this->rsOld['phoneHome']); ?></td>
                     <td align="center"><input type="radio" name="phoneHome" value=0 /></td>
                     <td align="center"><input type="radio" name="phoneHome" value=1 checked/></td>
-                    <td align="left"><?php echo($this->rsNew['phoneHome'] == '') ? '(none)' : ($this->rsNew['phoneHome']); ?></td>
+                    <td align="left"><?php echo($this->rsNew['phoneHome'] == '') ? '(keine)' : ($this->rsNew['phoneHome']); ?></td>
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center">Work phone&nbsp;</td>
+                    <td colspan=4 align="center">Telefon dienstlich&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="right"><?php echo($this->rsOld['phoneWork'] == '') ? '(none)' : ($this->rsOld['phoneWork']); ?></td>
+                    <td align="right"><?php echo($this->rsOld['phoneWork'] == '') ? '(keine)' : ($this->rsOld['phoneWork']); ?></td>
                     <td align="center"><input type="radio" name="phoneWork" value=0 /></td>
                     <td align="center"><input type="radio" name="phoneWork" value=1 checked/></td>
-                    <td align="left"><?php echo($this->rsNew['phoneWork'] == '') ? '(none)' : ($this->rsNew['phoneWork']); ?></td>
+                    <td align="left"><?php echo($this->rsNew['phoneWork'] == '') ? '(keine)' : ($this->rsNew['phoneWork']); ?></td>
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center">Website&nbsp;</td>
+                    <td colspan=4 align="center">Webseite&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="right"><?php echo($this->rsOld['webSite'] == '') ? '(none)' : ($this->rsOld['webSite']); ?></td>
+                    <td align="right"><?php echo($this->rsOld['webSite'] == '') ? '(keine)' : ($this->rsOld['webSite']); ?></td>
                     <td align="center"><input type="radio" name="website" value=0 /></td>
                     <td align="center"><input type="radio" name="website" value=1 checked/></td>
-                    <td align="left"><?php echo($this->rsNew['webSite'] == '') ? '(none)' : ($this->rsNew['webSite']); ?></td>
+                    <td align="left"><?php echo($this->rsNew['webSite'] == '') ? '(keine)' : ($this->rsNew['webSite']); ?></td>
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center">Address&nbsp;</td>
+                    <td colspan=4 align="center">Adresse&nbsp;</td>
                 </tr>
                 <tr>
                     <?php if($this->rsOld['address'] == "" && $this->rsOld['city'] == "" && $this->rsOld['state'] == "" && $this->rsOld['zip'] == ""): ?>
-                        <td align="right"><?php echo "(none)"; ?></td>
+                        <td align="right"><?php echo "(keine)"; ?></td>
                     <?php else: ?>
                         <td align="right"><?php echo($this->rsOld['address'].'<br/>'.$this->rsOld['city']." ".$this->rsOld['zip'].'<br/>'.$this->rsOld['state']); ?></td>
                     <?php endif; ?>
                     <td align="center"><input type="radio" name="address" value=0 /></td>
                     <td align="center"><input type="radio" name="address" value=1 checked/></td>
                     <?php if($this->rsNew['address'] == "" && $this->rsNew['city'] == "" && $this->rsNew['state'] == "" && $this->rsNew['zip'] == ""): ?>
-                        <td align="left"><?php echo "(none)";  ?></td>
+                        <td align="left"><?php echo "(keine)";  ?></td>
                     <?php else: ?>
                         <td align="left"><?php echo($this->rsNew['address'].'<br/>'.$this->rsNew['city']." ".$this->rsNew['zip'].'<br/>'.$this->rsNew['state']);  ?></td>
                     <?php endif; ?>
                 </tr>
                 
                 <tr>
-                    <td colspan=4 align="center"><input type="submit" class="button" id="mergeInfo" name="mergeInfo" value="Merge" /></td>
+                    <td colspan=4 align="center"><input type="submit" class="button" id="mergeInfo" name="mergeInfo" value="Zusammenführen" /></td>
                 </tr>
                 
                 <tr>
@@ -139,10 +139,10 @@
             </form>
         </table>
     <?php else: ?>
-        <p>These candidates have been successfully merged.</p>
+        <p>Diese Kandidaten wurden erfolgreich zusammengeführt.</p>
 
         <form method="get" action="<?php echo(CATSUtility::getIndexName()); ?>">
-            <input type="button" name="close" value="Close" onclick="parentHidePopWinRefresh();" />
+            <input type="button" name="close" value="Schließen" onclick="parentHidePopWinRefresh();" />
         </form>
     <?php endif; ?>
 
