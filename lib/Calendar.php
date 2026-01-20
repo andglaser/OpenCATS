@@ -643,19 +643,19 @@ class Calendar
         switch ($flag)
         {
             case UPCOMING_FOR_CALENDAR:
-                $HTML = '<div class="noteUnsizedSpan">My Upcoming Events / Calls</div>';
+                $HTML = '<div class="noteUnsizedSpan">Meine anstehenden Termine / Anrufe</div>';
                 $style = '';
                 $criteria = '';
                 break;
 
             case UPCOMING_FOR_DASHBOARD:
-                $HTML = '<div class="noteUnsizedSpan" style="width:100%;">My Upcoming Events</div>';
+                $HTML = '<div class="noteUnsizedSpan" style="width:100%;">Meine anstehenden Termine</div>';
                 $style = 'font-size:11px;';
                 $criteria = 'AND NOT TYPE = 100';
                 break;
 
             case UPCOMING_FOR_DASHBOARD_FUP:
-                $HTML = '<div class="noteUnsizedSpan">My Upcoming Calls</div>';
+                $HTML = '<div class="noteUnsizedSpan">Meine anstehenden Anrufe</div>';
                 $style = 'font-size:11px;';
                 $criteria = 'AND TYPE = 100';
                 break;
