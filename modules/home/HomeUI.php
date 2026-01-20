@@ -40,7 +40,7 @@ class HomeUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'home';
         $this->_moduleName = 'home';
-        $this->_moduleTabText = 'Dashboard';
+        $this->_moduleTabText = 'Übersicht';
         $this->_subTabs = array();
     }
 

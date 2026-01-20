@@ -41,7 +41,7 @@ class CalendarUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'calendar';
         $this->_moduleName = 'calendar';
-        $this->_moduleTabText = 'Calendar*al=' . ACCESS_LEVEL_READ . '@calendar';
+        $this->_moduleTabText = 'Kalender*al=' . ACCESS_LEVEL_READ . '@calendar';
         $this->_subTabs = array(
             'My Upcoming Events' => 'javascript:void(0);*js=calendarUpcomingEvents();*al=' . ACCESS_LEVEL_READ . '@calendar',
             'Add Event' => 'javascript:void(0);*js=userCalendarAddEvent();*al=' . ACCESS_LEVEL_EDIT . '@calendar',
