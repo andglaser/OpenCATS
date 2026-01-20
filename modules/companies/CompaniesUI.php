@@ -55,7 +55,7 @@ class CompaniesUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'companies';
         $this->_moduleName = 'companies';
-        $this->_moduleTabText = 'Companies';
+        $this->_moduleTabText = 'Unternehmen';
         $this->_subTabs = array(
             'Add Company'     => CATSUtility::getIndexName() . '?m=companies&amp;a=add*al=' . ACCESS_LEVEL_EDIT . '@companies.add' . '*hrmode=0',
             'Search Companies' => CATSUtility::getIndexName() . '?m=companies&amp;a=search*hrmode=0',

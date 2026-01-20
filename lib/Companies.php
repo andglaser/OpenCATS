@@ -754,11 +754,11 @@ class CompaniesDataGrid extends DataGrid
         $this->_dataItemIDColumn = 'company.company_id';
 
         $this->_classColumns = array(
-            'Attachments' => array(  'select'   => 'IF(attachment_id, 1, 0) AS attachmentPresent',
+            'Anhänge' => array(  'select'   => 'IF(attachment_id, 1, 0) AS attachmentPresent',
                                      'pagerRender' => '
                                                     if ($rsData[\'attachmentPresent\'] == 1)
                                                     {
-                                                        $return = \'<img src="images/paperclip.gif" alt="" width="16" height="16" title="Attachment Present" />\';
+                                                        $return = \'<img src="images/paperclip.gif" alt="" width="16" height="16" title="Anhang vorhanden" />\';
                                                     }
                                                     else
                                                     {
@@ -783,7 +783,7 @@ class CompaniesDataGrid extends DataGrid
                                       'alphaNavigation'=> true,
                                       'filter'         => 'company.name'),
 
-            'Jobs' =>       array('select'   => '(
+            'Stellen' =>       array('select'   => '(
                                                             SELECT
                                                                 COUNT(*)
                                                             FROM
@@ -799,44 +799,44 @@ class CompaniesDataGrid extends DataGrid
                                      'filterHaving'  => 'jobs',
                                      'filterTypes'   => '===>=<'),
 
-            'Phone' =>     array('select'   => 'company.phone1 AS phone',
+            'Telefon' =>     array('select'   => 'company.phone1 AS phone',
                                      'sortableColumn'     => 'phone',
                                      'pagerWidth'    => 80,
                                      'filter'         => 'company.phone1'),
 
-            'Phone 2' =>     array('select'   => 'company.phone2 AS phone2',
+            'Telefon 2' =>     array('select'   => 'company.phone2 AS phone2',
                                      'sortableColumn'     => 'phone2',
                                      'pagerWidth'    => 80,
                                      'filter'         => 'company.phone2'),
 
 
-            'City' =>           array('select'   => 'company.city AS city',
+            'Stadt' =>           array('select'   => 'company.city AS city',
                                      'sortableColumn'     => 'city',
                                      'pagerWidth'    => 80,
                                      'alphaNavigation' => true,
                                      'filter'         => 'company.city'),
 
 
-            'State' =>          array('select'   => 'company.state AS state',
+            'Bundesland' =>          array('select'   => 'company.state AS state',
                                      'sortableColumn'     => 'state',
                                      'filterType' => 'dropDown',
                                      'pagerWidth'    => 50,
                                      'alphaNavigation' => true,
                                      'filter'         => 'company.state'),
 
-            'Zip' =>            array('select'  => 'company.zip AS zip',
+            'PLZ' =>            array('select'  => 'company.zip AS zip',
                                      'sortableColumn'    => 'zip',
                                      'pagerWidth'   => 50,
                                      'filter'         => 'company.zip'),
 
 
-            'Web Site' =>      array('select'  => 'company.url AS webSite',
+            'Website' =>      array('select'  => 'company.url AS webSite',
                                      'pagerRender'     => 'return \'<a href="\'.htmlspecialchars($rsData[\'webSite\']).\'" target="_blank">\'.htmlspecialchars($rsData[\'webSite\']).\'</a>\';',
                                      'sortableColumn'    => 'webSite',
                                      'pagerWidth'   => 80,
                                      'filter'         => 'company.url'),
 
-            'Owner' =>         array('select'   => 'owner_user.first_name AS ownerFirstName,' .
+            'Besitzer' =>         array('select'   => 'owner_user.first_name AS ownerFirstName,' .
                                                    'owner_user.last_name AS ownerLastName,' .
                                                    'CONCAT(owner_user.last_name, owner_user.first_name) AS ownerSort',
                                      'pagerRender'      => 'return StringUtility::makeInitialName($rsData[\'ownerFirstName\'], $rsData[\'ownerLastName\'], false, LAST_NAME_MAXLEN);',
@@ -846,7 +846,7 @@ class CompaniesDataGrid extends DataGrid
                                      'alphaNavigation' => true,
                                      'filter'         => 'CONCAT(owner_user.first_name, owner_user.last_name)'),
 
-            'Contact' =>       array('select'   => 'contact.first_name AS contactFirstName,' .
+            'Kontakt' =>       array('select'   => 'contact.first_name AS contactFirstName,' .
                                                    'contact.last_name AS contactLastName,' .
                                                    'CONCAT(contact.last_name, contact.first_name) AS contactSort,' .
                                                    'contact.contact_id AS contactID',
@@ -858,20 +858,20 @@ class CompaniesDataGrid extends DataGrid
                                      'filter'         => 'CONCAT(contact.first_name, contact.last_name)'),
 
 
-            'Created' =>       array('select'   => 'DATE_FORMAT(company.date_created, \'%m-%d-%y\') AS dateCreated',
+            'Erstellt' =>       array('select'   => 'DATE_FORMAT(company.date_created, \'%m-%d-%y\') AS dateCreated',
                                      'pagerRender'      => 'return $rsData[\'dateCreated\'];',
                                      'sortableColumn'     => 'dateCreatedSort',
                                      'pagerWidth'    => 60,
                                      'filterHaving' => 'DATE_FORMAT(company.date_created, \'%m-%d-%y\')'),
 
-            'Modified' =>      array('select'   => 'DATE_FORMAT(company.date_modified, \'%m-%d-%y\') AS dateModified',
+            'Geändert' =>      array('select'   => 'DATE_FORMAT(company.date_modified, \'%m-%d-%y\') AS dateModified',
                                      'pagerRender'      => 'return $rsData[\'dateModified\'];',
                                      'sortableColumn'     => 'dateModifiedSort',
                                      'pagerWidth'    => 60,
                                      'pagerOptional' => false,
                                      'filterHaving' => 'DATE_FORMAT(company.date_modified, \'%m-%d-%y\')'),
 
-            'Misc Notes' =>     array('select'  => 'company.notes AS notes',
+            'Sonstige Notizen' =>     array('select'  => 'company.notes AS notes',
                                      'sortableColumn'    => 'notes',
                                      'pagerWidth'   => 300,
                                      'filter'         => 'company.notes'),
@@ -880,18 +880,18 @@ class CompaniesDataGrid extends DataGrid
                                      'filter'    => 'company.owner',
                                      'pagerOptional' => false,
                                      'filterable' => false,
-                                     'filterDescription' => 'Only My Companies'),
+                                     'filterDescription' => 'Nur meine Unternehmen'),
 
             'IsHot' =>         array('select'    => '',
                                      'filter'    => 'company.is_hot',
                                      'pagerOptional' => false,
                                      'filterable' => false,
-                                     'filterDescription' => 'Only Hot Companies')
+                                     'filterDescription' => 'Nur Hot-Unternehmen')
         );
 
         if (US_ZIPS_ENABLED)
         {
-            $this->_classColumns['Near Zipcode'] =
+            $this->_classColumns['In der Nähe der PLZ'] =
                                array('select'  => 'company.zip AS zip',
                                      'filter' => 'company.zip',
                                      'pagerOptional' => false,

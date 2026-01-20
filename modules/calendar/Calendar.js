@@ -839,7 +839,7 @@ function updateCalendarViewMonth()
 
     var monthData = -1;
 
-    document.getElementById('calendarTitle').innerHTML = 'Calendar: '
+    document.getElementById('calendarTitle').innerHTML = 'Kalender: '
         + monthNameWrap(currentMonth) + ' ' + currentYear;
 
     document.getElementById('linkMonthBack').innerHTML = '<a href="javascript:setCalendarViewMonth('
@@ -1022,7 +1022,7 @@ function updateCalendarViewWeek()
 
     weekNames = Array('1st', '2nd', '3rd', '4th', '5th', '6th');
 
-    document.getElementById('calendarTitle').innerHTML = 'Calendar: '
+    document.getElementById('calendarTitle').innerHTML = 'Kalender: '
         + weekNames[currentWeek-1] + ' week of ' + monthNameWrap(currentMonth)
         + ' ' + currentYear;
 
@@ -1168,7 +1168,7 @@ function updateCalendarViewDay()
 
     dayPositionData = Array();
 
-    document.getElementById('calendarTitle').innerHTML = 'Calendar: ' + monthNameWrap(currentMonth) + ' ' + currentDay + ', ' + currentYear;
+    document.getElementById('calendarTitle').innerHTML = 'Kalender: ' + monthNameWrap(currentMonth) + ' ' + currentDay + ', ' + currentYear;
 
     document.getElementById('linkDayBack').innerHTML = '<a href="javascript:setCalendarViewDay(' + getYearByDay(currentYear, currentMonth, currentDay - 1) + ', ' + getMonthByDay(currentYear, currentMonth, currentDay - 1) + ', ' + getDayByDay(currentYear, currentMonth, currentDay - 1) + ');"><img src="images/arrow_left_24.gif" style="border:none;" />&nbsp;</a>';
     document.getElementById('linkDayForeward').innerHTML = '<a href="javascript:setCalendarViewDay(' + getYearByDay(currentYear, currentMonth, currentDay + 1) + ', ' + getMonthByDay(currentYear, currentMonth, currentDay + 1) + ', ' + getDayByDay(currentYear, currentMonth, currentDay + 1) + ');">&nbsp;<img src="images/arrow_right_24.gif" style="border:none;" /></a>';

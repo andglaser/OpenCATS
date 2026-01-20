@@ -141,7 +141,7 @@ class TemplateUtility
                     $daysLeft = abs(LicenseUtility::getExpirationDate() - time())/60/60/24;
                     echo '<a href="http://www.catsone.com/professional" target="_blank">';
                     echo '<img src="images/tabs/small_upgrade.jpg" border="0" /> ';
-                    echo 'License expires in ' . number_format($daysLeft, 0) . ' days, Renew?</a>&nbsp;&nbsp;&nbsp;&nbsp;', "\n";
+                    echo 'Lizenz läuft in ' . number_format($daysLeft, 0) . ' Tagen ab, verlängern?</a>&nbsp;&nbsp;&nbsp;&nbsp;', "\n";
                 }
                 else
                 {
@@ -153,7 +153,7 @@ class TemplateUtility
 
             echo '<a href="', $indexName, '?m=logout">';
             echo '<img src="images/tabs/small_logout.jpg" border="0" /> ';
-            echo 'Logout</a>', "\n";
+            echo 'Abmelden</a>', "\n";
             echo '</div>', "\n";
             // End top-right action block
 
@@ -177,17 +177,17 @@ class TemplateUtility
                 !$systemInfoData['disable_version_check'] &&
                 $_SESSION['CATS']->getAccessLevel(ACL::SECOBJ_ROOT) >= ACCESS_LEVEL_SA)
             {
-                echo '<a href="http://www.catsone.com/download.php" target="catsdl">A new CATS version is available!</a><br />';
+                echo '<a href="http://www.catsone.com/download.php" target="catsdl">Eine neue CATS-Version ist verfügbar!</a><br />';
             }
 
             /* Disabled notice */
             if (!$_SESSION['CATS']->accountActive())
             {
-                echo '<span style="font-weight:bold;">Account Inactive</span><br />', "\n";
+                echo '<span style="font-weight:bold;">Konto inaktiv</span><br />', "\n";
             }
             else if ($_SESSION['CATS']->getAccessLevel(ACL::SECOBJ_ROOT) == ACCESS_LEVEL_READ)
             {
-                echo '<span>Read Only Access</span><br />', "\n";
+                echo '<span>Nur-Lesezugriff</span><br />', "\n";
             }
             else
             {
@@ -264,7 +264,7 @@ class TemplateUtility
 
         if (!empty($MRU))
         {
-            echo '<span class="MRUTitle">Recent:&nbsp;</span>&nbsp;', $MRU, "\n";
+            echo '<span class="MRUTitle">Zuletzt:&nbsp;</span>&nbsp;', $MRU, "\n";
         }
         else
         {
@@ -283,18 +283,18 @@ class TemplateUtility
         {
             echo '<input type="hidden" name="m" value="asp" />', "\n";
             echo '<input type="hidden" name="a" value="aspSearch" />', "\n";
-            echo '<span class="quickSearchLabel" id="quickSearchLabel">ASP Search:</span>&nbsp;', "\n";
+            echo '<span class="quickSearchLabel" id="quickSearchLabel">ASP-Suche:</span>&nbsp;', "\n";
         }
         else
         {
             echo '<input type="hidden" name="m" value="home" />', "\n";
             echo '<input type="hidden" name="a" value="quickSearch" />', "\n";
-            echo '<span class="quickSearchLabel" id="quickSearchLabel">Quick Search:</span>&nbsp;', "\n";
+            echo '<span class="quickSearchLabel" id="quickSearchLabel">Schnellsuche:</span>&nbsp;', "\n";
         }
 
         echo '<input name="quickSearchFor" id="quickSearchFor" class="quickSearchBox" value="',
              $wildCardString, '" />&nbsp;', "\n";
-        echo '<input type="submit" name="quickSearch" class="button" value="Go" />&nbsp;', "\n";
+        echo '<input type="submit" name="quickSearch" class="button" value="Suchen" />&nbsp;', "\n";
         echo '</div>', "\n";
         echo '</form>', "\n";
         echo '</div>', "\n";

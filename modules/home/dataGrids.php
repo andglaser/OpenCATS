@@ -62,12 +62,12 @@ class ImportantPipelineDashboard extends DataGrid
         $this->defaultSortDirection = 'DESC';
 
         $this->_defaultColumns = array(
-            array('name' => 'First Name', 'width' => 85),
-            array('name' => 'Last Name', 'width' => 75),
+            array('name' => 'Vorname', 'width' => 85),
+            array('name' => 'Nachname', 'width' => 75),
             array('name' => 'Status', 'width' => 75),
             array('name' => 'Position', 'width' => 275),
-            array('name' => 'Company', 'width' => 210),
-            array('name' => 'Modified', 'width' => 80),
+            array('name' => 'Unternehmen', 'width' => 210),
+            array('name' => 'Geändert', 'width' => 80),
         );
 
 
@@ -78,14 +78,14 @@ class ImportantPipelineDashboard extends DataGrid
 
         $this->_classColumns = array(
 
-            'First Name' =>     array('pagerRender'    => '$ret = \'<img src="images/mru/candidate.gif" height="12" alt="" />\'; if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return $ret.\'&nbsp;<a href="'.CATSUtility::getIndexName().'?m=candidates&amp;a=show&amp;candidateID=\'.$rsData[\'candidateID\'].\'" style="font-size:11px;" class="\'.$className.\'" title="\'.htmlspecialchars(InfoString::make(DATA_ITEM_CANDIDATE,$rsData[\'candidateID\'],$rsData[\'siteID\'])).\'">\'.htmlspecialchars($rsData[\'firstName\']).\'</a>\';',
+            'Vorname' =>     array('pagerRender'    => '$ret = \'<img src="images/mru/candidate.gif" height="12" alt="" />\'; if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return $ret.\'&nbsp;<a href="'.CATSUtility::getIndexName().'?m=candidates&amp;a=show&amp;candidateID=\'.$rsData[\'candidateID\'].\'" style="font-size:11px;" class="\'.$className.\'" title="\'.htmlspecialchars(InfoString::make(DATA_ITEM_CANDIDATE,$rsData[\'candidateID\'],$rsData[\'siteID\'])).\'">\'.htmlspecialchars($rsData[\'firstName\']).\'</a>\';',
                                      'sortableColumn'  => 'firstName',
                                      'pagerWidth'      => 85,
                                      'pagerOptional'   => false,
                                      'alphaNavigation' => true,
                                      'filterHaving'    => 'firstName'),
 
-            'Last Name' =>      array('pagerRender'    => 'if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=candidates&amp;a=show&amp;candidateID=\'.$rsData[\'candidateID\'].\'"  style="font-size:11px;" class="\'.$className.\'" title="\'.htmlspecialchars(InfoString::make(DATA_ITEM_CANDIDATE,$rsData[\'candidateID\'],$rsData[\'siteID\'])).\'"> \'.htmlspecialchars($rsData[\'lastName\']).\'</a>\';',
+            'Nachname' =>      array('pagerRender'    => 'if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=candidates&amp;a=show&amp;candidateID=\'.$rsData[\'candidateID\'].\'"  style="font-size:11px;" class="\'.$className.\'" title="\'.htmlspecialchars(InfoString::make(DATA_ITEM_CANDIDATE,$rsData[\'candidateID\'],$rsData[\'siteID\'])).\'"> \'.htmlspecialchars($rsData[\'lastName\']).\'</a>\';',
                                      'sortableColumn'  => 'lastName',
                                      'pagerWidth'      => 75,
                                      'pagerOptional'   => false,
@@ -104,13 +104,13 @@ class ImportantPipelineDashboard extends DataGrid
                                      'alphaNavigation' => true,
                                      'filterHaving'    => 'jobOrderTitle'),
 
-            'Company'    =>    array('pagerRender'    => 'if ($rsData[\'companyIsHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=companies&amp;a=show&amp;companyID=\'.$rsData[\'companyID\'].\'"  style="font-size:11px;" class="\'.$className.\'">\'.htmlspecialchars($rsData[\'companyName\']).\'</a>\';',
+            'Unternehmen'    =>    array('pagerRender'    => 'if ($rsData[\'companyIsHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=companies&amp;a=show&amp;companyID=\'.$rsData[\'companyID\'].\'"  style="font-size:11px;" class="\'.$className.\'">\'.htmlspecialchars($rsData[\'companyName\']).\'</a>\';',
                                      'sortableColumn'  => 'companyName',
                                      'pagerWidth'      => 180,
                                      'alphaNavigation' => true,
                                      'filterHaving'    => 'companyName'),
 
-            'Modified' =>      array('pagerRender'     => 'return $rsData[\'dateModified\'];',
+            'Geändert' =>      array('pagerRender'     => 'return $rsData[\'dateModified\'];',
                                      'sortableColumn'  => 'dateModifiedSort',
                                      'pagerWidth'      => 70,
                                      'pagerOptional'   => true,
@@ -242,7 +242,7 @@ class CallsDataGrid extends DataGrid
         $this->defaultSortDirection = 'DESC';
 
         $this->_defaultColumns = array(
-            array('name' => 'Time', 'width' => 90),
+            array('name' => 'Zeit', 'width' => 90),
             array('name' => 'Name', 'width' => 175)
         );
 
@@ -254,7 +254,7 @@ class CallsDataGrid extends DataGrid
         $this->_dataItemIDColumn = 'company.company_id';
 
         $this->_classColumns = array(
-            'Time' =>          array('pagerRender'    => 'return $rsData[\'dateCreated\'].\':\';',
+            'Zeit' =>          array('pagerRender'    => 'return $rsData[\'dateCreated\'].\':\';',
                                       'sortableColumn' => 'dateCreatedSort',
                                       'pagerWidth'     => 90,
                                       'pagerOptional'  => false,
@@ -307,7 +307,7 @@ class CallsDataGrid extends DataGrid
                 entered_by_user.last_name AS enteredByLastName,
                 CONCAT(entered_by_user.last_name, entered_by_user.first_name) AS enteredBySort,
                 IF(ISNULL(joborder.title),
-                    'General',
+                    'Allgemein',
                     CONCAT(joborder.title, ' (', company.name, ')'))
                 AS regarding,
                 joborder.title AS regardingJobTitle,
@@ -361,7 +361,7 @@ class CallsDataGrid extends DataGrid
                 entered_by_user.last_name AS enteredByLastName,
                 CONCAT(entered_by_user.last_name, entered_by_user.first_name) AS enteredBySort,
                 IF(ISNULL(joborder.title),
-                    'General',
+                    'Allgemein',
                     CONCAT(joborder.title, ' (', company.name, ')'))
                 AS regarding,
                 joborder.title AS regardingJobTitle,

@@ -51,7 +51,7 @@ class ActivityUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'activity';
         $this->_moduleName = 'activity';
-        $this->_moduleTabText = 'Activities';
+        $this->_moduleTabText = 'Aktivitäten';
     }
 
     public function handleRequest()

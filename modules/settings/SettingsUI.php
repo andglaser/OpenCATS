@@ -66,7 +66,7 @@ class SettingsUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'settings';
         $this->_moduleName = 'settings';
-        $this->_moduleTabText = 'Settings';
+        $this->_moduleTabText = 'Einstellungen';
 
         /* Only CATS professional on site gets to make career portal customizer users. */
         if( class_exists('ACL_SETUP') && !empty(ACL_SETUP::$USER_ROLES) )
@@ -75,8 +75,8 @@ class SettingsUI extends UserInterface
         }
 
         $mp = array(
-            'Administration' => CATSUtility::getIndexName() . '?m=settings&amp;a=administration',
-            'My Profile'     => CATSUtility::getIndexName() . '?m=settings'
+            'Verwaltung' => CATSUtility::getIndexName() . '?m=settings&amp;a=administration',
+            'Mein Profil' => CATSUtility::getIndexName() . '?m=settings'
         );
 
         $this->_subTabs = $mp;

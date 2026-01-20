@@ -815,7 +815,7 @@ class ContactsDataGrid extends DataGrid
         $this->_dataItemIDColumn = 'contact.contact_id';
 
         $this->_classColumns = array(
-            'First Name' =>     array('select'         => 'contact.first_name AS firstName',
+            'Vorname' =>     array('select'         => 'contact.first_name AS firstName',
                                       'pagerRender'    => 'if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=contacts&amp;a=show&amp;contactID=\'.$rsData[\'contactID\'].\'" class="\'.$className.\'">\'.htmlspecialchars($rsData[\'firstName\']).\'</a>\';',
                                       'sortableColumn' => 'firstName',
                                       'pagerWidth'     => 75,
@@ -823,7 +823,7 @@ class ContactsDataGrid extends DataGrid
                                       'alphaNavigation'=> true,
                                       'filter'         => 'contact.first_name'),
 
-            'Last Name' =>      array('select'         => 'contact.last_name AS lastName',
+            'Nachname' =>      array('select'         => 'contact.last_name AS lastName',
                                      'sortableColumn'  => 'lastName',
                                      'pagerRender'     => 'if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=contacts&amp;a=show&amp;contactID=\'.$rsData[\'contactID\'].\'" class="\'.$className.\'">\'.htmlspecialchars($rsData[\'lastName\']).\'</a>\';',
                                      'pagerWidth'      => 85,
@@ -831,7 +831,7 @@ class ContactsDataGrid extends DataGrid
                                      'alphaNavigation' => true,
                                      'filter'         => 'contact.last_name'),
 
-            'Company' =>     array('select'         => 'company.name AS name,'.
+            'Unternehmen' =>     array('select'         => 'company.name AS name,'.
                                                        'company.company_id as companyID',
                                       'pagerRender'    => 'if ($rsData[\'isHot\'] == 1) $className =  \'jobLinkHot\'; else $className = \'jobLinkCold\'; return \'<a href="'.CATSUtility::getIndexName().'?m=companies&amp;a=show&amp;companyID=\'.$rsData[\'companyID\'].\'" class="\'.$className.\'">\'.htmlspecialchars($rsData[\'name\']).\'</a>\';',
                                       'sortableColumn' => 'name',
@@ -840,14 +840,14 @@ class ContactsDataGrid extends DataGrid
                                       'alphaNavigation'=> true,
                                       'filter'         => 'company.name'),
 
-            'Title' =>        array('select'  => 'contact.title AS title',
+            'Titel' =>        array('select'  => 'contact.title AS title',
                                      'sortableColumn'    => 'title',
                                      'pagerWidth'   => 140,
                                      'alphaNavigation' => true,
                                      'pagerOptional'  => true,
                                      'filter'         => 'contact.title'),
 
-            'Department' =>  array('select'  => 'company_department.company_department_id AS companyDepartmentID, company_department.name as department',
+            'Abteilung' =>  array('select'  => 'company_department.company_department_id AS companyDepartmentID, company_department.name as department',
                                      'join'     => 'LEFT JOIN company_department on company_department.company_department_id = contact.company_department_id',
                                      'sortableColumn'    => 'department',
                                      'pagerWidth'   => 120,
@@ -855,21 +855,21 @@ class ContactsDataGrid extends DataGrid
                                      'pagerOptional'  => true,
                                      'filter'         => 'company_department.department'),
 
-            'Work Phone' =>   array('select'  => 'contact.phone_work AS workPhone',
+            'Telefon (geschäftlich)' =>   array('select'  => 'contact.phone_work AS workPhone',
                                      'sortableColumn'    => 'workPhone',
                                      'pagerWidth'   => 140,
                                      'alphaNavigation' => false,
                                      'pagerOptional'  => true,
                                      'filter'         => 'contact.work_phone'),
 
-            'Cell Phone' =>    array('select'  => 'contact.phone_cell AS cellPhone',
+            'Handy' =>    array('select'  => 'contact.phone_cell AS cellPhone',
                                      'sortableColumn'    => 'cellPhone',
                                      'pagerWidth'   => 140,
                                      'alphaNavigation' => false,
                                      'pagerOptional'  => true,
                                      'filter'         => 'contact.phone_cell'),
 
-            'Other Phone' =>   array('select'  => 'contact.phone_other AS otherPhone',
+            'Weiteres Telefon' =>   array('select'  => 'contact.phone_other AS otherPhone',
                                      'sortableColumn'    => 'otherPhone',
                                      'pagerWidth'   => 140,
                                      'alphaNavigation' => false,
@@ -881,42 +881,42 @@ class ContactsDataGrid extends DataGrid
                                      'pagerWidth'    => 80,
                                      'filter'         => 'contact.email1'),
 
-            '2nd E-Mail' =>     array('select'   => 'contact.email2 AS email2',
+            '2. E-Mail' =>     array('select'   => 'contact.email2 AS email2',
                                      'sortableColumn'     => 'email2',
                                      'pagerWidth'    => 80,
                                      'filter'         => 'contact.email2'),
 
-            'Address' =>        array('select'   => 'contact.address AS address',
+            'Adresse' =>        array('select'   => 'contact.address AS address',
                                      'sortableColumn'     => 'address',
                                      'pagerWidth'    => 250,
                                      'alphaNavigation' => true,
                                      'filter'         => 'contact.address'),
 
-            'City' =>           array('select'   => 'contact.city AS city',
+            'Stadt' =>           array('select'   => 'contact.city AS city',
                                      'sortableColumn'     => 'city',
                                      'pagerWidth'    => 80,
                                      'alphaNavigation' => true,
                                      'filter'         => 'contact.city'),
 
 
-            'State' =>          array('select'   => 'contact.state AS state',
+            'Bundesland' =>          array('select'   => 'contact.state AS state',
                                      'sortableColumn'     => 'state',
                                      'filterType' => 'dropDown',
                                      'pagerWidth'    => 50,
                                      'alphaNavigation' => true,
                                      'filter'         => 'contact.state'),
 
-            'Zip' =>            array('select'  => 'contact.zip AS zip',
+            'PLZ' =>            array('select'  => 'contact.zip AS zip',
                                      'sortableColumn'    => 'zip',
                                      'pagerWidth'   => 50,
                                      'filter'         => 'contact.zip'),
 
-            'Misc Notes' =>     array('select'  => 'contact.notes AS notes',
+            'Sonstige Notizen' =>     array('select'  => 'contact.notes AS notes',
                                      'sortableColumn'    => 'notes',
                                      'pagerWidth'   => 300,
                                      'filter'         => 'contact.notes'),
 
-            'Owner' =>         array('pagerRender'      => 'return StringUtility::makeInitialName($rsData[\'ownerFirstName\'], $rsData[\'ownerLastName\'], false, LAST_NAME_MAXLEN);',
+            'Besitzer' =>         array('pagerRender'      => 'return StringUtility::makeInitialName($rsData[\'ownerFirstName\'], $rsData[\'ownerLastName\'], false, LAST_NAME_MAXLEN);',
                                      'exportRender'     => 'return $rsData[\'ownerFirstName\'] . " " .$rsData[\'ownerLastName\'];',
                                      'sortableColumn'     => 'ownerSort',
                                      'pagerWidth'    => 75,
@@ -924,13 +924,13 @@ class ContactsDataGrid extends DataGrid
                                      'pagerOptional'  => true,
                                      'filter'         => 'CONCAT(owner_user.first_name, owner_user.last_name)'),
 
-            'Created' =>       array('select'   => 'DATE_FORMAT(contact.date_created, \'%m-%d-%y\') AS dateCreated',
+            'Erstellt' =>       array('select'   => 'DATE_FORMAT(contact.date_created, \'%m-%d-%y\') AS dateCreated',
                                      'pagerRender'      => 'return $rsData[\'dateCreated\'];',
                                      'sortableColumn'     => 'dateCreatedSort',
                                      'pagerWidth'    => 60,
                                      'filterHaving' => 'DATE_FORMAT(contact.date_created, \'%m-%d-%y\')'),
 
-            'Modified' =>      array('select'   => 'DATE_FORMAT(contact.date_modified, \'%m-%d-%y\') AS dateModified',
+            'Geändert' =>      array('select'   => 'DATE_FORMAT(contact.date_modified, \'%m-%d-%y\') AS dateModified',
                                      'pagerRender'      => 'return $rsData[\'dateModified\'];',
                                      'sortableColumn'     => 'dateModifiedSort',
                                      'pagerWidth'    => 60,
@@ -941,19 +941,19 @@ class ContactsDataGrid extends DataGrid
                                      'filter'    => 'contact.owner',
                                      'pagerOptional' => false,
                                      'filterable' => false,
-                                     'filterDescription' => 'Only My Contacts'),
+                                     'filterDescription' => 'Nur meine Kontakte'),
 
             'IsHot' =>         array('select'    => '',
                                      'filter'    => 'contact.is_hot',
                                      'pagerOptional' => false,
                                      'filterable' => false,
-                                     'filterDescription' => 'Only Hot Contacts')
+                                     'filterDescription' => 'Nur Hot-Kontakte')
 
         );
 
         if (US_ZIPS_ENABLED)
         {
-            $this->_classColumns['Near Zipcode'] =
+            $this->_classColumns['In der Nähe der PLZ'] =
                                array('select'  => 'contact.zip AS zip',
                                      'filter' => 'contact.zip',
                                      'pagerOptional' => false,
