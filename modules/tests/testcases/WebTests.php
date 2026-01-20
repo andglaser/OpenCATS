@@ -45,16 +45,16 @@ class CandidatesWebTest extends CATSWebTestCase
         $this->runPageLoadAssertions(false);
 
         /* Click on the Candidates tab. */
-        $this->assertClickLink('Candidates');
+        $this->assertClickLink('Kandidaten');
         $this->runPageLoadAssertions(false);
 
         /* Test the main Candidates page. */
         $this->assertTitle('CATS - Candidates');
-        $this->assertPattern('/<h2>Candidates: Home<\/h2>/');
+        $this->assertPattern('/<h2>Kandidaten: Übersicht<\/h2>/');
         // FIXME: More tests here.
 
         /* Click on the Add Candidate sub-tab. */
-        $this->assertClickLink('Add Candidate');
+        $this->assertClickLink('Kandidaten hinzufügen');
         $this->runPageLoadAssertions(false);
 
         /* Test the Add Candidate page. */
@@ -160,7 +160,7 @@ class CandidatesWebTest extends CATSWebTestCase
         );
 
         /* Click on the Search Candidates sub-tab. */
-        $this->assertClickLink('Search Candidates');
+        $this->assertClickLink('Kandidaten suchen');
         $this->runPageLoadAssertions(false);
 
         /* Test the Search Candidates sub-tab. */
