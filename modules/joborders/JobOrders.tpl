@@ -1,5 +1,5 @@
 <?php /* $Id: JobOrders.tpl 3676 2007-11-21 21:02:15Z brian $ */ ?>
-<?php TemplateUtility::printHeader('Job Orders', array( 'js/highlightrows.js',  'js/sweetTitles.js', 'js/export.js', 'js/dataGrid.js', 'js/dataGridFilters.js')); ?>
+<?php TemplateUtility::printHeader('Jobaufträge', array( 'js/highlightrows.js',  'js/sweetTitles.js', 'js/export.js', 'js/dataGrid.js', 'js/dataGridFilters.js')); ?>
 <?php TemplateUtility::printHeaderBlock(); ?>
 <?php TemplateUtility::printTabs($this->active); ?>
     <style type="text/css">
@@ -14,9 +14,9 @@
             <table width="100%">
                 <tr>
                     <td width="3%">
-                        <img src="images/job_orders.gif" width="24" height="24" border="0" alt="Job Orders" style="margin-top: 3px;" />&nbsp;
+                        <img src="images/job_orders.gif" width="24" height="24" border="0" alt="Jobaufträge" style="margin-top: 3px;" />&nbsp;
                     </td>
-                    <td><h2>Job Orders: Home</h2></td>
+                    <td><h2>Jobaufträge: Übersicht</h2></td>
 
                     <?php TemplateUtility::printPopupContainer(); ?>
 
@@ -38,18 +38,18 @@
                                                     echo ">".$filter."</option>";
                                                 }
                                             ?>
-                                            <option value=""<?php if ($this->dataGrid->getFilterValue('Status') == ''): ?> selected="selected"<?php endif; ?>>All</option>
+                                            <option value=""<?php if ($this->dataGrid->getFilterValue('Status') == ''): ?> selected="selected"<?php endif; ?>>Alle</option>
                                         </select>
                                     </td>
 
                                     <td valign="top" align="right" nowrap="nowrap">
                                         <input type="checkbox" name="onlyMyJobOrders" id="onlyMyJobOrders" <?php if ($this->dataGrid->getFilterValue('OwnerID') ==  $this->userID): ?>checked<?php endif; ?> onclick="<?php echo $this->dataGrid->getJSAddRemoveFilterFromCheckbox('OwnerID', '==',  $this->userID); ?>" />
-                                        <label for="onlyMyJobOrders">Only My Job Orders</label>&nbsp;
+                                        <label for="onlyMyJobOrders">Nur meine Jobaufträge</label>&nbsp;
 
                                     </td>
                                     <td valign="top" align="right" nowrap="nowrap">
                                         <input type="checkbox" name="onlyHotJobOrders" id="onlyHotJobOrders" <?php if ($this->dataGrid->getFilterValue('IsHot') == '1'): ?>checked<?php endif; ?> onclick="<?php echo $this->dataGrid->getJSAddRemoveFilterFromCheckbox('IsHot', '==', '\'1\''); ?>" />
-                                        <label for="onlyHotJobOrders">Only Hot Job Orders</label>&nbsp;
+                                        <label for="onlyHotJobOrders">Nur Hot-Jobaufträge</label>&nbsp;
                                     </td>
                                 </tr>
                             </table>
@@ -67,7 +67,7 @@
                         <img src="images/large_error.gif" align="left">
                     </td>
                     <td align="left" valign="center">
-                        <span style="font-size: 12pt; font-weight: bold; color: #800000; line-height: 12pt;">There was a problem with your request:</span>
+                        <span style="font-size: 12pt; font-weight: bold; color: #800000; line-height: 12pt;">Es gab ein Problem mit Ihrer Anfrage:</span>
                         <div style="font-size: 10pt; font-weight: bold; padding: 3px 0px 0px 0px;"><?php echo $this->errMessage; ?></div>
                     </td>
                 </tr>
@@ -77,12 +77,12 @@
 
             <?php if ($this->totalJobOrders): ?>
             <p class="note">
-                <span style="float:left;">Job Orders  -
-                    Page <?php echo($this->dataGrid->getCurrentPageHTML()); ?>
-                    (<?php echo($this->dataGrid->getNumberOfRows()); ?> Items)
-                    (<?php if ($this->dataGrid->getFilterValue('Status') != '') echo ($this->dataGrid->getFilterValue('Status')); else echo ('All'); ?>)
-                    <?php if ($this->dataGrid->getFilterValue('OwnerID') ==  $this->userID): ?>(Only My Job Orders)<?php endif; ?>
-                    <?php if ($this->dataGrid->getFilterValue('IsHot') == '1'): ?>(Only Hot Job Orders)<?php endif; ?>
+                <span style="float:left;">Jobaufträge -
+                    Seite <?php echo($this->dataGrid->getCurrentPageHTML()); ?>
+                    (<?php echo($this->dataGrid->getNumberOfRows()); ?> Einträge)
+                    (<?php if ($this->dataGrid->getFilterValue('Status') != '') echo ($this->dataGrid->getFilterValue('Status')); else echo ('Alle'); ?>)
+                    <?php if ($this->dataGrid->getFilterValue('OwnerID') ==  $this->userID): ?>(Nur meine Jobaufträge)<?php endif; ?>
+                    <?php if ($this->dataGrid->getFilterValue('IsHot') == '1'): ?>(Nur Hot-Jobaufträge)<?php endif; ?>
                 </span>
                 <span style="float:right;">
                     <?php $this->dataGrid->drawRowsPerPageSelector(); ?>
@@ -114,8 +114,8 @@
                 <td style="padding-left: 62px;" align="center" valign="center">
 
                     <div style="text-align: center; width: 600px; line-height: 22px; font-size: 18px; font-weight: bold; color: #666666; padding-bottom: 20px;">
-                    Add a job order, then attach candidates
-                    to the pipeline with their status (interviewing, qualifying, etc.)
+                    Fügen Sie einen Jobauftrag hinzu und ordnen Sie Kandidaten
+                    der Pipeline mit ihrem Status zu (z.&nbsp;B. Interview, Qualifizierung usw.).
                     </div>
 
                     <a href="javascript:void(0);"  onclick="showPopWin('<?php echo CATSUtility::getIndexName(); ?>?m=joborders&amp;a=addJobOrderPopup', 400, 250, null);">
