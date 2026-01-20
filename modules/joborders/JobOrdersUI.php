@@ -80,11 +80,11 @@ class JobOrdersUI extends UserInterface
         $this->_authenticationRequired = true;
         $this->_moduleDirectory = 'joborders';
         $this->_moduleName = 'joborders';
-        $this->_moduleTabText = 'Job Orders';
+        $this->_moduleTabText = 'Jobaufträge';
         $this->_subTabs = array(
             //'Add Job Order'     => CATSUtility::getIndexName() . '?m=joborders&amp;a=add*al=' . ACCESS_LEVEL_EDIT . '@joborders.add',
-            'Add Job Order' => 'javascript:void(0);*js=showPopWin(\''.CATSUtility::getIndexName().'?m=joborders&amp;a=addJobOrderPopup\', 400, 250, null);*al=' . ACCESS_LEVEL_EDIT . '@joborders.add',
-            'Search Job Orders' => CATSUtility::getIndexName() . '?m=joborders&amp;a=search'
+            'Jobauftrag hinzufügen' => 'javascript:void(0);*js=showPopWin(\''.CATSUtility::getIndexName().'?m=joborders&amp;a=addJobOrderPopup\', 400, 250, null);*al=' . ACCESS_LEVEL_EDIT . '@joborders.add',
+            'Jobaufträge suchen' => CATSUtility::getIndexName() . '?m=joborders&amp;a=search'
         );
     }
 
